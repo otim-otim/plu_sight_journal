@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".readNoteActivity">
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="4dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/movenext_fab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        app:srcCompat="@android:drawable/ic_media_next"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/edit_fab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/movenext_fab"
+                        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+                    <TextView
+                        android:id="@+id/title_note"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="TextView"
+                        app:layout_constraintLeft_toLeftOf="@id/date_note"
+                        app:layout_constraintTop_toBottomOf="@id/date_note" />
+
+                    <TextView
+                        android:id="@+id/date_note"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="TextView"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_margin="4dp"
+                        android:padding="4dp"
+                        app:cardCornerRadius="4dp"
+                        app:cardElevation="4dp"
+                        app:cardUseCompatPadding="true"
+                        app:contentPadding="4dp"
+                        app:layout_constraintLeft_toLeftOf="@id/title_note"
+                        app:layout_constraintTop_toBottomOf="@id/title_note">
+
+                        <TextView
+                            android:id="@+id/text_note"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="TextView" />
+                    </android.support.v7.widget.CardView>
+                </android.support.constraint.ConstraintLayout>
+
+            </FrameLayout>
+        </android.support.v7.widget.CardView>
+    </FrameLayout>
+</android.support.constraint.ConstraintLayout>
