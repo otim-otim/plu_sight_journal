@@ -2,18 +2,23 @@ package com.example.otimdibossman.myjournal;
 
 import android.content.Context;
 import android.content.Intent;
+
 import android.database.Cursor;
+
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+
 import com.example.otimdibossman.myjournal.myJournalDatabaseContractClass.notesEntry;
+
 
 public class notesRecyclerAdapter extends RecyclerView.Adapter<notesRecyclerAdapter.MyViewHolder> {
     private final Context mContext;
     private final LayoutInflater layoutInflater;
+
 
    // private final noteItem[] myNotes;
     private  Cursor mCursor;
@@ -53,7 +58,9 @@ public class notesRecyclerAdapter extends RecyclerView.Adapter<notesRecyclerAdap
         public final TextView mTextTitle;
         public final TextView mTextDate;
 
+
         public int mId;
+
 
         public MyViewHolder(View itemView) {
 
@@ -69,7 +76,9 @@ public class notesRecyclerAdapter extends RecyclerView.Adapter<notesRecyclerAdap
         public void onClick(View view) {
 
             Intent noteIntent=new Intent(mContext,readNoteActivity.class);
+
             noteIntent.putExtra("note_id",mId);
+
             mContext.startActivity(noteIntent);
         }
     }
@@ -84,6 +93,7 @@ public class notesRecyclerAdapter extends RecyclerView.Adapter<notesRecyclerAdap
     public void onBindViewHolder(notesRecyclerAdapter.MyViewHolder holder, int position) {
 
 
+
         mCursor.moveToPosition(position);
         String noteDate=mCursor.getString(mDatePos);
         String noteTitle=mCursor.getString(mTitlePos);
@@ -95,11 +105,14 @@ public class notesRecyclerAdapter extends RecyclerView.Adapter<notesRecyclerAdap
         holder.mId=noteId;
 
 
+
     }
 
     @Override
     public int getItemCount() {
 
+
         return mCursor==null?0: mCursor.getCount();
+
     }
 }

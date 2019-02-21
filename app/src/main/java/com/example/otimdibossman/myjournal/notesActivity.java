@@ -1,7 +1,9 @@
 package com.example.otimdibossman.myjournal;
 
 import android.content.Intent;
+
 import android.database.Cursor;
+
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,8 +22,10 @@ public class notesActivity extends AppCompatActivity implements View.OnClickList
     LinearLayoutManager mLayoutManager;
 
 
+
    Cursor mCursor;
     notesRecyclerAdapter myAdapter=new notesRecyclerAdapter(this,null);
+
     FloatingActionButton addNote;
     SearchView mSearchView;
 

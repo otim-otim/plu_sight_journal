@@ -2,6 +2,7 @@ package com.example.otimdibossman.myjournal;
 
 import android.content.Intent;
 import android.database.Cursor;
+
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -18,12 +19,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+
 import com.example.otimdibossman.myjournal.myJournalDatabaseContractClass.notesEntry;
 
 import static android.provider.BaseColumns._ID;
-import static com.example.otimdibossman.myjournal.myJournalDatabaseContractClass.notesEntry.Column_Note_Date;
-import static com.example.otimdibossman.myjournal.myJournalDatabaseContractClass.notesEntry.Column_Note_Text;
-import static com.example.otimdibossman.myjournal.myJournalDatabaseContractClass.notesEntry.Column_Note_Title;
+import static com.example.otimdibossman.myjournal.myJournalDatabaseContractClass.notesEntry;
+import static com.example.otimdibossman.myjournal.myJournalDatabaseContractClass.notesEntry;
+import static com.example.otimdibossman.myjournal.myJournalDatabaseContractClass.notesEntry;
+
 
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -41,6 +44,7 @@ public class Main2Activity extends AppCompatActivity
         setContentView(R.layout.activity_main2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         mDbOpenHelper=new myJournalOpenHelper(this);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -64,15 +68,17 @@ public class Main2Activity extends AppCompatActivity
     @Override
     protected void onResume(){
         super.onResume();
+
         loadNotes();
 
 
     }
 
+
     private void loadNotes() {
         SQLiteDatabase db=mDbOpenHelper.getReadableDatabase();
         final String[] noteColumns = {notesEntry.Column_Note_Date, notesEntry.Column_Note_Title,notesEntry._ID};
-        final Cursor notes_cursor = db.query(notesEntry.Table_Name, noteColumns, null, null, null, null, Column_Note_Date);
+        final Cursor notes_cursor = db.query(notesEntry.Table_Name, noteColumns, null, null, null, null, notesEntry.Column_Note_Date);
 
         mNotesRecyclerAdapter.changeCursor(notes_cursor);
     }
@@ -85,6 +91,10 @@ public class Main2Activity extends AppCompatActivity
 
     private void initializeDisplayContent(){
 
+
+
+        mDbOpenHelper=new myJournalOpenHelper(this);
+
         DataManager.loadFromDatabase(mDbOpenHelper);
 
         final RecyclerView mRecyclerView=(RecyclerView) findViewById(R.id.note_list);
@@ -94,7 +104,13 @@ public class Main2Activity extends AppCompatActivity
 
 
 
+
         mNotesRecyclerAdapter =new notesRecyclerAdapter(this,null);
+
+
+
+
+
         mRecyclerView.setAdapter(mNotesRecyclerAdapter);
 
 

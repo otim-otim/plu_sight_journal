@@ -1,7 +1,9 @@
 package com.example.otimdibossman.myjournal;
 
 import android.content.Intent;
+
 import android.database.sqlite.SQLiteDatabase;
+
 import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,9 +15,11 @@ public class editNoteActivity extends AppCompatActivity {
 
     EditText editNoteTitle;
     EditText editNoteText;
+
     int noteID;
     myJournalOpenHelper mDBOpenHelper;
     SQLiteDatabase DB;
+
 
 
 
@@ -27,11 +31,13 @@ public class editNoteActivity extends AppCompatActivity {
         editNoteTitle=(EditText) findViewById(R.id.edit_title);
         editNoteText=(EditText) findViewById(R.id.edit_notetext);
 
+
         noteID=getStartingIntent();
         DB=mDBOpenHelper.getReadableDatabase();
 
         //editNoteTitle.setText();
        // editNoteText.setText();
+
 
     }
 
@@ -40,8 +46,10 @@ public class editNoteActivity extends AppCompatActivity {
         Intent getTheIntent=getIntent();
 
         if(getTheIntent!=null){
+
             if(getTheIntent.hasExtra("note_id")){
                  mNote=getTheIntent.getIntExtra("note_id",1);
+
 
 
             }
@@ -60,6 +68,7 @@ public class editNoteActivity extends AppCompatActivity {
         int id=item.getItemId();
         switch (id){
             case R.id.action_save:
+
                //noteItem editedNote=noteSave(position);
 
                Intent backIntent=new Intent(editNoteActivity.this,readNoteActivity.class);
@@ -74,6 +83,7 @@ public class editNoteActivity extends AppCompatActivity {
               //  noteSave(position);
 
                // noteShare(myNotes[position]);
+
                 break;
 
 
@@ -92,6 +102,7 @@ public class editNoteActivity extends AppCompatActivity {
                                  .startChooser();
     }
 
+
     //private noteItem noteSave(int position) {
         //myNotes[position].setTitle(editNoteTitle.getText().toString());
        // myNotes[position].setText(editNoteText.getText().toString());
@@ -100,6 +111,7 @@ public class editNoteActivity extends AppCompatActivity {
 
         
    // }
+
     protected String[] passData(noteItem ed_note){
         String[] getdata=new String[2];
         getdata[0]=ed_note.getTitle().toString();

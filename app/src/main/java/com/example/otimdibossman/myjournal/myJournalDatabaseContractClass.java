@@ -13,6 +13,7 @@ public final class myJournalDatabaseContractClass {
         public static   final String Column_Email="email";
         public static   final String Column_Hint="hint";
         public static  final String SQL_Create_Table="CREATE TABLE" +" "+ Table_Name +"("+_ID+ " " +"INTEGER Primary Key,"+Column_Username+""+" TEXT NOT NULL UNIQUE, "+Column_Email+" TEXT NOT NULL,"+Column_Password+"  TEXT NULL,"+Column_Hint+" TEXT NULL"+")";
+        //public static  final String SQL_Create_Table="CREATE TABLE" + Table_Name +"("+_ID+"" +"INTEGER Primary Key,"+Column_Username+""+" TEXT NOT NULL UNIQUE,"+Column_Email+""+"TEXT NOT NULL,"+Column_Password+""+" TEXT NULL,"+Column_Hint+""+" TEXT NULL"+")";
 
     }
     public static final class notesEntry implements BaseColumns{
@@ -21,6 +22,9 @@ public final class myJournalDatabaseContractClass {
         public static  final String Column_Note_Text="noteText";
         public static  final  String Column_Note_Date="noteDate";
         public static  final String Column_User="user";
+
         public static  final String SQL_Create_Table="CREATE TABLE"+" "+ Table_Name+"("+_ID+""+"INTEGER Primary Key,"+Column_Note_Date+""+"NOT NULL,"+Column_Note_Title+""+"NOT NULL,"+Column_Note_Text+","+Column_User+""+"Text NOT NULL)";
+
+
     }
 }
